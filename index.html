@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="index.css">
+| <link href='https://unpkg.com/boxicons@2.1.4/css/
+boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  
+    <header class="header">
+     <a href="#home" class="logo">
+      RITISH <span>DHAKAL
+      </span>
+     </a>
+     <i class="bx bx-menu" id="menu-icon"></i>
+
+     <nav class="navbar">
+      <a href="#home">HOME</a>
+      <a href="#about">Abou Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+
+     </nav>
+     <button class="gradient-btn">Contact Me</button>
+    </header>
+    <!--Home section Begins-->
+    <section class="home" id="home">
+      <div class="home-ctn">
+        <h1>Hi, I am Ritish <span>Dhakal</span></h1>
+        <br>
+        <p>Driven by passion and perseverance, I strive to blend innovation with technology to create impactful solutions.</p>
+        <div class="social-icon">
+          <a href="#">
+          <i class="bx bxl-github"></i>
+        </a>
+        <a href="#">
+          <i class="bx bxl-linkdein-square"></i>
+        </a>
+        <a href="#">
+          <i class="bx bxl-instagram-alt"></i>
+        </a>
+        <a href="#">
+          <i class="bx bxl-twitter"></i>
+        </a>
+        </div>
+        <div class="btn-group">
+          <a href="#contact">
+           <i class="btn">Contact</i>
+          </a>
+        </div>
+      </div>
+        <div class="home-image">
+          <img src="images/Langtang1.jpeg" alt="">
+        </div>
+      
+    </section>
+    <!--Home section Ends-->
+
+    <!--ABout section Begins-->
+
+     <section class="about" id="about">
+      <div class="img-about">
+        <img src="images/Langtang2.jpeg" alt="">
+      </div>
+      <div class="content">
+        <h1>About Me</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed, quam ut. Modi et, ipsum, inventore ullam ipsam mollitia fugit quod maiores eius commodi odio unde, similique harum animi porro corrupti?</p>
+        
+        <br><br><br><a href="#" class="btn">Read More</a>
+      </div>
+     </section>
+    <!--ABout section Ends-->
+
+  <!--Contact Begins-->
+     <section class="contact" id="contact">
+      <div class="container">
+        <h2>Contact Me</h2>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+            <h3>Send me a message</h3>
+            
+               <div class="form-grp">
+                <form name="submit-to-google-sheet">
+                <input type="text" id="name" name="name" placeholder="your name">
+
+              </div>
+              <div class="form-grp">
+                <input type="email" id="email" name="email" placeholder="your email">
+                
+              </div>
+              <div class="form-grp">
+                <textarea name="message" id="message" placeholder="Your messaage"></textarea>
+                
+              </div>
+              <button type = "submit">Send Message</button>
+            </form>
+            <span id="msg"></span>
+            
+          </div>
+
+          <div class="contact-info">
+            <h3>Contact Information</h3>
+            <p><i class="fas fa-phone"></i>+977-9866287988</p>
+            <p><i class="fas fa-envelope"></i>ritishdhakal40@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i>44600,Kathmandu,Nepal</p>
+          </div>
+        </div> 
+      </div>
+      <a href="images/CV.pdf" download class="btn btn2">Download CV</a>
+
+     </section>
+     
+      <div class="copyright">
+        <p>copyright @ Ritish. Made with <i class="fas fa-heart"></i> by Ritish</p>
+      </div>
+  <!--Contact Ends-->
+  <script src="https://smtpjs.com/v3/smtp.js">
+  </script>
+  <script src="index.js">
+    
+  </script>
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyK637-bjQ3mxtmsj1byHDDYveLNdvJz4kl6auOTvCBT5L6w0JdIqYaQlJS2DBfO3hx/exec'
+  const form = document.forms['submit-to-google-sheet']
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => { msg.innerHTML= "Message submitted successfully : "
+        setTimeout(function()
+        {
+          msg.innerHTML = ''
+
+        }
+        ,5000)
+        form.reset()
+      })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+</body>
+</html>
